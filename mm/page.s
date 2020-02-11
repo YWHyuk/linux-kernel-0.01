@@ -3,9 +3,9 @@
  * the real work is done in mm.c
  */
 
-.globl _page_fault
-
-_page_fault:
+.globl page_fault
+.code32
+page_fault:
 	xchgl %eax,(%esp)
 	pushl %ecx
 	pushl %edx

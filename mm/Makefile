@@ -1,26 +1,26 @@
 CC	=gcc
-CFLAGS	=-O -Wall -fstrength-reduce -fcombine-regs -fomit-frame-pointer \
+CFLAGS	=-O -Wall -m32 -march=i386 -fstrength-reduce -fomit-frame-pointer\
 	-finline-functions -nostdinc -I../include
-AS	=gas
-AR	=gar
-LD	=gld
+AS	=as
+AR	=ar
+LD	=ld
 CPP	=gcc -E -nostdinc -I../include
 
 .c.o:
 	$(CC) $(CFLAGS) \
-	-c -o $*.o $<
+	-c $< -o $*.o
 .s.o:
-	$(AS) -o $*.o $<
+	$(AS) --32 -march=i386 $< -o $*.o
 .c.s:
 	$(CC) $(CFLAGS) \
-	-S -o $*.s $<
+	-S $< -o $*.s
 
 OBJS	= memory.o page.o
 
 all: mm.o
 
 mm.o: $(OBJS)
-	$(LD) -r -o mm.o $(OBJS)
+	$(LD) -m elf_i386 -r -o mm.o $(OBJS)
 
 clean:
 	rm -f core *.o *.a tmp_make
