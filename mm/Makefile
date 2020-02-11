@@ -1,5 +1,5 @@
 CC	=gcc
-CFLAGS	=-O -Wall -m32 -march=i386 -fstrength-reduce -fomit-frame-pointer\
+CFLAGS	=-O -Wall -m32 -march=i386 -fomit-frame-pointer\
 	-finline-functions -nostdinc -I../include
 AS	=as
 AR	=ar

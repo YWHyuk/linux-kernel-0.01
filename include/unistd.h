@@ -126,7 +126,7 @@
 #define __NR_setsid	66
 
 #define _syscall0(type,name) \
-type name(void) \
+static inline type name(void) \
 { \
 type __res; \
 __asm__ volatile ("int $0x80" \

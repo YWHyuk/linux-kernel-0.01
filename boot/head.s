@@ -102,7 +102,7 @@ L6:
 				# just in case, we know what happens.
 
 /* This is the default interrupt "handler" :-) */
-.align 2
+.align 4
 ignore_int:
 	incb 0xb8000+160		# put something on the screen
 	movb $2,0xb8000+161		# so that we know something
@@ -154,18 +154,18 @@ setup_paging:
 	movl %eax,%cr0		/* set paging (PG) bit */
 	ret			/* this also flushes prefetch-queue */
 
-.align 2
+.align 4
 .word 0
 idt_descr:
 	.word 256*8-1		# idt contains 256 entries
 	.long _idt
-.align 2
+.align 4
 .word 0
 gdt_descr:
 	.word 256*8-1		# so does gdt (not that that's any
 	.long _gdt		# magic number, but it works for me :^)
 
-	.align 3
+	.align 8
 _idt:	.fill 256,8,0		# idt is uninitialized
 
 _gdt:	.quad 0x0000000000000000	/* NULL descriptor */

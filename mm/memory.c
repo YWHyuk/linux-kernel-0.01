@@ -8,7 +8,7 @@
 int do_exit(long code);
 
 #define invalidate() \
-asm("movl %%eax,%%cr3"::"a" (0))
+__asm__ volatile("movl %%eax,%%cr3"::"a" (0))
 
 #if (BUFFER_END < 0x100000)
 #define LOW_MEM 0x100000
@@ -26,7 +26,7 @@ asm("movl %%eax,%%cr3"::"a" (0))
 #endif
 
 #define copy_page(from,to) \
-asm("cld ; rep ; movsl"::"S" (from),"D" (to),"c" (1024))
+__asm__ volatile("cld ; rep ; movsl"::"S" (from),"D" (to),"c" (1024))
 
 static unsigned short mem_map [ PAGING_PAGES ] = {0,};
 
@@ -38,7 +38,7 @@ unsigned long get_free_page(void)
 {
 register unsigned long __res asm("ax");
 
-asm volatile ("std ; repne ; scasw\n\t"
+__asm__ volatile ("std ; repne ; scasw\n\t"
 	"jne 1f\n\t"
 	"movw $1,2(%%edi)\n\t"
 	"sall $12,%%ecx\n\t"

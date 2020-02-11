@@ -1,9 +1,10 @@
-AR	=gar
-AS	=gas
+AR	=ar
+AS	=as
 CC	=gcc
-LD	=gld
-CFLAGS	=-Wall -O -fstrength-reduce -fcombine-regs -fomit-frame-pointer \
-	-mstring-insns -nostdinc -I../include
+LD	=ld
+CFLAGS	=-Wall -O -m32 =march=i386 -fomit-frame-pointer \
+	-nostdinc -I../include
+AFLAGS  =--32 -march=i386
 CPP	=gcc -E -nostdinc -I../include
 
 .c.s:
@@ -13,7 +14,8 @@ CPP	=gcc -E -nostdinc -I../include
 	$(CC) $(CFLAGS) \
 	-c -o $*.o $<
 .s.o:
-	$(AS) -o $*.o $<
+	$(AS) $(AFLAGS) \
+	-o $*.o $<
 
 OBJS=	open.o read_write.o inode.o file_table.o buffer.o super.o \
 	block_dev.o char_dev.o file_dev.o stat.o exec.o pipe.o namei.o \
