@@ -27,7 +27,7 @@ __asm__("pushl $0x10\n\t" \
 	"movsl\n\t" \
 	"pop %%es" \
 	::"c" (BLOCK_SIZE/4),"S" (from),"D" (to) \
-	:"cx","di","si")
+	)
 
 /*
  * read_head() reads blocks 1-6 (not 0). Block 0 has already been

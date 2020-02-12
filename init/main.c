@@ -76,7 +76,7 @@ static void time_init(void)
 	startup_time = kernel_mktime(&time);
 }
 
-void main(void)		/* This really IS void, no error here. */
+int main(void)		/* This really IS void, no error here. */
 {			/* The startup routine assumes (well, ...) this */
 /*
  * Interrupts are still disabled. Do necessary setups, then

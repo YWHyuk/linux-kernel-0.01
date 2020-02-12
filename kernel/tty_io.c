@@ -254,7 +254,7 @@ int tty_read(unsigned channel, char * buf, int nr)
 
 int tty_write(unsigned channel, char * buf, int nr)
 {
-	static cr_flag=0;
+	static int cr_flag=0;
 	struct tty_struct * tty;
 	char c, *b=buf;
 
@@ -277,7 +277,7 @@ int tty_write(unsigned channel, char * buf, int nr)
 					continue;
 				}
 				if (O_LCUC(tty))
-					c=toupper(c);
+					c=(char)toupper(c);
 			}
 			b++; nr--;
 			cr_flag = 0;

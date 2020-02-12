@@ -154,7 +154,7 @@ extern void wake_up(struct task_struct ** p);
 #define ltr(n) __asm__("ltr %%ax"::"a" (_TSS(n)))
 #define lldt(n) __asm__("lldt %%ax"::"a" (_LDT(n)))
 #define str(n) \
-__asm__("str %%ax\n\t" \
+__asm__ volatile("str %%ax\n\t" \
 	"subl %2,%%eax\n\t" \
 	"shrl $4,%%eax" \
 	:"=a" (n) \
@@ -167,7 +167,7 @@ __asm__("str %%ax\n\t" \
  */
 #define switch_to(n) {\
 struct {long a,b;} __tmp; \
-__asm__("cmpl %%ecx,_current\n\t" \
+__asm__ volatile("cmpl %%ecx,_current\n\t" \
 	"je 1f\n\t" \
 	"xchgl %%ecx,_current\n\t" \
 	"movw %%dx,%1\n\t" \
@@ -183,7 +183,7 @@ __asm__("cmpl %%ecx,_current\n\t" \
 #define PAGE_ALIGN(n) (((n)+0xfff)&0xfffff000)
 
 #define _set_base(addr,base) \
-__asm__("movw %%dx,%0\n\t" \
+__asm__ volatile("movw %%dx,%0\n\t" \
 	"rorl $16,%%edx\n\t" \
 	"movb %%dl,%1\n\t" \
 	"movb %%dh,%2" \
@@ -191,10 +191,10 @@ __asm__("movw %%dx,%0\n\t" \
 	  "m" (*((addr)+4)), \
 	  "m" (*((addr)+7)), \
 	  "d" (base) \
-	:"dx")
+	)
 
 #define _set_limit(addr,limit) \
-__asm__("movw %%dx,%0\n\t" \
+__asm__ volatile("movw %%dx,%0\n\t" \
 	"rorl $16,%%edx\n\t" \
 	"movb %1,%%dh\n\t" \
 	"andb $0xf0,%%dh\n\t" \
@@ -203,14 +203,14 @@ __asm__("movw %%dx,%0\n\t" \
 	::"m" (*(addr)), \
 	  "m" (*((addr)+6)), \
 	  "d" (limit) \
-	:"dx")
+	)
 
 #define set_base(ldt,base) _set_base( ((char *)&(ldt)) , base )
 #define set_limit(ldt,limit) _set_limit( ((char *)&(ldt)) , (limit-1)>>12 )
 
 #define _get_base(addr) ({\
 unsigned long __base; \
-__asm__("movb %3,%%dh\n\t" \
+__asm__ volatile("movb %3,%%dh\n\t" \
 	"movb %2,%%dl\n\t" \
 	"shll $16,%%edx\n\t" \
 	"movw %1,%%dx" \
@@ -224,7 +224,7 @@ __base;})
 
 #define get_limit(segment) ({ \
 unsigned long __limit; \
-__asm__("lsll %1,%0\n\tincl %0":"=r" (__limit):"r" (segment)); \
+__asm__ volatile("lsll %1,%0\n\tincl %0":"=r" (__limit):"r" (segment)); \
 __limit;})
 
 #endif

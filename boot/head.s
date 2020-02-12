@@ -138,7 +138,9 @@ setup_paging:
 	movl $1024*3,%ecx
 	xorl %eax,%eax
 	xorl %edi,%edi			/* pg_dir is at 0x000 */
-	cld;rep;stosl
+	cld
+	rep
+	stosl
 	movl $pg0+7,_pg_dir		/* set present bit/user r/w */
 	movl $pg1+7,_pg_dir+4		/*  --------- " " --------- */
 	movl $pg1+4092,%edi

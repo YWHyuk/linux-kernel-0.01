@@ -81,7 +81,7 @@ static void scrup(void)
 				"c" ((lines-1)*columns>>1),
 				"D" (SCREEN_START),
 				"S" (origin)
-				:"cx","di","si");
+				);
 			scr_end -= origin-SCREEN_START;
 			pos -= origin-SCREEN_START;
 			origin = SCREEN_START;
@@ -92,7 +92,7 @@ static void scrup(void)
 				::"a" (0x07200720),
 				"c" (columns>>1),
 				"D" (scr_end-(columns<<1))
-				:"cx","di");
+				);
 		}
 		set_origin();
 	} else {
@@ -106,7 +106,7 @@ static void scrup(void)
 			"c" ((bottom-top-1)*columns>>1),
 			"D" (origin+(columns<<1)*top),
 			"S" (origin+(columns<<1)*(top+1))
-			:"cx","di","si");
+			);
 	}
 }
 
@@ -123,7 +123,7 @@ static void scrdown(void)
 		"c" ((bottom-top-1)*columns>>1),
 		"D" (origin+(columns<<1)*bottom-4),
 		"S" (origin+(columns<<1)*(bottom-1)-4)
-		:"ax","cx","di","si");
+		);
 }
 
 static void lf(void)
@@ -187,7 +187,7 @@ static void csi_J(int par)
 		"stosw\n\t"
 		::"c" (count),
 		"D" (start),"a" (0x0720)
-		:"cx","di");
+		);
 }
 
 static void csi_K(int par)
@@ -218,7 +218,7 @@ static void csi_K(int par)
 		"stosw\n\t"
 		::"c" (count),
 		"D" (start),"a" (0x0720)
-		:"cx","di");
+		);
 }
 
 void csi_m(void)
@@ -388,7 +388,7 @@ void con_write(struct tty_struct * tty)
 					__asm__("movb _attr,%%ah\n\t"
 						"movw %%ax,%1\n\t"
 						::"a" (c),"m" (*(short *)pos)
-						:"ax");
+						);
 					pos += 2;
 					x++;
 				} else if (c==27)

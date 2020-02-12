@@ -9,9 +9,9 @@
 AR	=ar
 AS	=as
 LD	=ld
-LDFLAGS	=-s -x
+LDFLAGS	=-m elf_i386 -r -s -x
 CC	=gcc
-CFLAGS	=-Wall -O -fomit-frame-pointer \
+CFLAGS	=-Wall -O -m32 -march=i386 -fomit-frame-pointer \
 	-finline-functions -nostdinc -I../include
 AFLAGS  =--32 -march=i386
 CPP	=gcc -E -nostdinc -I../include

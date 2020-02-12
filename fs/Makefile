@@ -2,7 +2,8 @@ AR	=ar
 AS	=as
 CC	=gcc
 LD	=ld
-CFLAGS	=-Wall -O -m32 =march=i386 -fomit-frame-pointer \
+LDFLAGS =-m elf_i386 -r
+CFLAGS	=-Wall -O -m32 -march=i386 -fomit-frame-pointer \
 	-nostdinc -I../include
 AFLAGS  =--32 -march=i386
 CPP	=gcc -E -nostdinc -I../include
@@ -22,7 +23,7 @@ OBJS=	open.o read_write.o inode.o file_table.o buffer.o super.o \
 	bitmap.o fcntl.o ioctl.o tty_ioctl.o truncate.o
 
 fs.o: $(OBJS)
-	$(LD) -r -o fs.o $(OBJS)
+	$(LD) $(LDFLAGS) -o fs.o $(OBJS)
 
 clean:
 	rm -f core *.o *.a tmp_make

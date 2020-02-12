@@ -4,13 +4,13 @@
 # remove them from the CFLAGS defines.
 #
 
-AS86	=as -0 -a
-CC86	=cc -0
-LD86	=ld -0
+AS86	=as 
+CC86	=cc 
+LD86	=ld
 
 AS	=as
 LD	=ld
-LDFLAGS	=-s -x -M
+LDFLAGS	=-m elf_i386 -r -s -x -M
 CC	=gcc
 CFLAGS	=-Wall -O -m32 -march=i386 -fomit-frame-pointer
 AFLAGS  =--32 -march=i386
@@ -62,12 +62,11 @@ lib/lib.a:
 	(cd lib; make)
 
 boot/boot:	boot/boot.s tools/system
-	(echo -n "SYSSIZE = (";ls -l tools/system | grep system \
-		| cut -c25-31 | tr '\012' ' '; echo "+ 15 ) / 16") > tmp.s
+	stat tools/system --format="SYSSIZE = (%s + 15)/16" > tmp.s
 	cat boot/boot.s >> tmp.s
-	$(AS86) -o boot/boot.o tmp.s
+	$(AS86) $(AFLAGS) -o boot/boot.o tmp.s
 	rm -f tmp.s
-	$(LD86) -s -o boot/boot boot/boot.o
+	$(LD86) $(LDFLAGS) -s -o boot/boot boot/boot.o
 
 clean:
 	rm -f Image System.map tmp_make boot/boot core

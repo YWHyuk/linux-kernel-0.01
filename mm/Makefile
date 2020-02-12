@@ -4,6 +4,7 @@ CFLAGS	=-O -Wall -m32 -march=i386 -fomit-frame-pointer\
 AS	=as
 AR	=ar
 LD	=ld
+LDFLAGS =-m elf_i386 -r
 CPP	=gcc -E -nostdinc -I../include
 
 .c.o:
@@ -20,7 +21,7 @@ OBJS	= memory.o page.o
 all: mm.o
 
 mm.o: $(OBJS)
-	$(LD) -m elf_i386 -r -o mm.o $(OBJS)
+	$(LD) $(LDFLAGS) -o mm.o $(OBJS)
 
 clean:
 	rm -f core *.o *.a tmp_make

@@ -172,7 +172,7 @@ extern void free_inode(struct m_inode * inode);
 
 extern void mount_root(void);
 
-extern inline struct super_block * get_super(int dev)
+static inline struct super_block * get_super(int dev)
 {
 	struct super_block * s;
 
