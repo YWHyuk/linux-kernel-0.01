@@ -1,10 +1,10 @@
 CC	=gcc
 CFLAGS	=-O -Wall -m32 -march=i386 -fomit-frame-pointer\
-	-finline-functions -nostdinc -I../include
+	-finline-functions -nostdinc -I../include -fstack-protector-explicit 
 AS	=as
 AR	=ar
 LD	=ld
-LDFLAGS =-m elf_i386 -r
+LDFLAGS =-m elf_i386 -r 
 CPP	=gcc -E -nostdinc -I../include
 
 .c.o:

@@ -1,3 +1,3 @@
 #!/bin/sh
-cp bin /mnt/c/Users/magnu/Desktop/bin
-/mnt/c/'Program Files'/qemu/qemu-system-i386.exe -hda C:/Users/magnu/Desktop/bin 
+cp Image /mnt/c/Users/magnu/Desktop/Image
+/mnt/c/'Program Files'/qemu/qemu-system-i386.exe -fda C:/Users/magnu/Desktop/Image -S -s 

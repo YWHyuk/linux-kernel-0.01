@@ -3,7 +3,7 @@
  */
 
 .text
-.globl _keyboard_interrupt
+.globl keyboard_interrupt
 .code32
 /*
  * these are for the keyboard read functions
@@ -24,7 +24,7 @@ e0:	.byte 0
  *  keyboard scan-code and converts it into the appropriate
  *  ascii character(s).
  */
-_keyboard_interrupt:
+keyboard_interrupt:
 	pushl %eax
 	pushl %ebx
 	pushl %ecx
@@ -56,7 +56,7 @@ e0_e1:	inb $0x61,%al
 	movb $0x20,%al
 	outb %al,$0x20
 	pushl $0
-	call _do_tty_interrupt
+	call do_tty_interrupt
 	addl $4,%esp
 	pop %es
 	pop %ds
@@ -78,7 +78,7 @@ set_e1:	movb $2,e0
 put_queue:
 	pushl %ecx
 	pushl %edx
-	movl _table_list,%edx		# read-queue for console
+	movl table_list,%edx		# read-queue for console
 	movl head(%edx),%ecx
 1:	movb %al,buf(%edx,%ecx)
 	incl %ecx

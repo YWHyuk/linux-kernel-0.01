@@ -1,0 +1,698 @@
+sched.c: Assembler messages:
+sched.c:108: Warning: indirect ljmp without `*'
+system_call.s: Assembler messages:
+system_call.s:75: Warning: indirect call without `*'
+In file included from traps.c:7:0:
+../include/string.h:128:22: warning: conflicting types for built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strchr(const char * s,char c)
+                      ^~~~~~
+../include/string.h:145:22: warning: conflicting types for built-in function ‘strrchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strrchr(const char * s,char c)
+                      ^~~~~~~
+../include/string.h:379:22: warning: conflicting types for built-in function ‘memchr’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memchr(const void * cs,char c,int count)
+                      ^~~~~~
+../include/string.h:395:22: warning: conflicting types for built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memset(void * s,char c,int count)
+                      ^~~~~~
+fork.c: In function ‘copy_process’:
+fork.c:112:7: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (f=p->filp[i])
+       ^
+printk.c: In function ‘printk’:
+printk.c:19:4: warning: implicit declaration of function ‘vsprintf’ [-Wimplicit-function-declaration]
+  i=vsprintf(buf,fmt,args);
+    ^~~~~~~~
+In file included from vsprintf.c:7:0:
+../include/string.h:128:22: warning: conflicting types for built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strchr(const char * s,char c)
+                      ^~~~~~
+../include/string.h:145:22: warning: conflicting types for built-in function ‘strrchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strrchr(const char * s,char c)
+                      ^~~~~~~
+../include/string.h:379:22: warning: conflicting types for built-in function ‘memchr’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memchr(const void * cs,char c,int count)
+                      ^~~~~~
+../include/string.h:395:22: warning: conflicting types for built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memset(void * s,char c,int count)
+                      ^~~~~~
+vsprintf.c: In function ‘number’:
+vsprintf.c:52:5: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+  if (type&SPECIAL)
+     ^
+vsprintf.c:67:5: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+  if (type&SPECIAL)
+     ^
+vsprintf.c: In function ‘vsprintf’:
+vsprintf.c:99:6: warning: variable ‘qualifier’ set but not used [-Wunused-but-set-variable]
+  int qualifier;  /* 'h', 'l', or 'L' for integer fields */
+      ^~~~~~~~~
+tty_io.c: In function ‘tty_read’:
+tty_io.c:209:7: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (flag=(!oldalarm || time+jiffies<oldalarm))
+       ^~~~
+tty_io.c:239:8: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+    if (flag=(!oldalarm || time+jiffies<oldalarm))
+        ^~~~
+tty_io.c:238:6: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+   if (time && !L_CANON(tty))
+      ^
+In file included from tty_io.c:6:0:
+tty_io.c: In function ‘tty_write’:
+../include/ctype.h:21:31: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ #define islower(c) ((_ctype+1)[c]&(_L))
+                               ^
+../include/ctype.h:32:21: note: in expansion of macro ‘islower’
+ #define toupper(c) (islower(c)?c+('A'-'a'):c)
+                     ^~~~~~~
+tty_io.c:280:14: note: in expansion of macro ‘toupper’
+      c=(char)toupper(c);
+              ^~~~~~~
+console.c: In function ‘csi_J’:
+console.c:166:7: warning: ignoring asm-specifier for non-static local variable ‘count’
+  long count __asm__("cx");
+       ^~~~~
+console.c:167:7: warning: ignoring asm-specifier for non-static local variable ‘start’
+  long start __asm__("di");
+       ^~~~~
+console.c: In function ‘csi_K’:
+console.c:195:7: warning: ignoring asm-specifier for non-static local variable ‘count’
+  long count __asm__("cx");
+       ^~~~~
+console.c:196:7: warning: ignoring asm-specifier for non-static local variable ‘start’
+  long start __asm__("di");
+       ^~~~~
+console.c: In function ‘con_write’:
+console.c:441:9: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+     if (ques=(c=='?'))
+         ^~~~
+keyboard.s: Assembler messages:
+keyboard.s:43: Warning: indirect call without `*'
+rs_io.s: Assembler messages:
+rs_io.s:59: Warning: indirect call without `*'
+hd.c: In function ‘drive_busy’:
+hd.c:208:8: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+  if (i == READY_STAT | SEEK_STAT)
+hd.c: In function ‘add_request’:
+hd.c:55:50: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ ((s1)->head<(s2)->head || (s1)->head==(s2)->head && \
+                           ~~~~~~~~~~~~~~~~~~~~~~~^~~~
+ ((s1)->sector<(s2)->sector))))
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~                       
+hd.c:349:10: note: in expansion of macro ‘IN_ORDER’
+     if ((IN_ORDER(tmp,req) ||
+          ^~~~~~~~
+hd.c:54:46: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ ((s1)->cyl<(s2)->cyl || (s1)->cyl==(s2)->cyl && \
+                         ~~~~~~~~~~~~~~~~~~~~~^~~~
+ ((s1)->head<(s2)->head || (s1)->head==(s2)->head && \
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ((s1)->sector<(s2)->sector))))
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                  
+hd.c:349:10: note: in expansion of macro ‘IN_ORDER’
+     if ((IN_ORDER(tmp,req) ||
+          ^~~~~~~~
+hd.c:53:42: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ ((s1)->hd<(s2)->hd || (s1)->hd==(s2)->hd && \
+                       ~~~~~~~~~~~~~~~~~~~^~~~
+ ((s1)->cyl<(s2)->cyl || (s1)->cyl==(s2)->cyl && \
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ((s1)->head<(s2)->head || (s1)->head==(s2)->head && \
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ((s1)->sector<(s2)->sector))))
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~             
+hd.c:349:10: note: in expansion of macro ‘IN_ORDER’
+     if ((IN_ORDER(tmp,req) ||
+          ^~~~~~~~
+hd.c:55:50: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ ((s1)->head<(s2)->head || (s1)->head==(s2)->head && \
+                           ~~~~~~~~~~~~~~~~~~~~~~~^~~~
+ ((s1)->sector<(s2)->sector))))
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~                       
+hd.c:350:10: note: in expansion of macro ‘IN_ORDER’
+         !IN_ORDER(tmp,tmp->next)) &&
+          ^~~~~~~~
+hd.c:54:46: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ ((s1)->cyl<(s2)->cyl || (s1)->cyl==(s2)->cyl && \
+                         ~~~~~~~~~~~~~~~~~~~~~^~~~
+ ((s1)->head<(s2)->head || (s1)->head==(s2)->head && \
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ((s1)->sector<(s2)->sector))))
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                  
+hd.c:350:10: note: in expansion of macro ‘IN_ORDER’
+         !IN_ORDER(tmp,tmp->next)) &&
+          ^~~~~~~~
+hd.c:53:42: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ ((s1)->hd<(s2)->hd || (s1)->hd==(s2)->hd && \
+                       ~~~~~~~~~~~~~~~~~~~^~~~
+ ((s1)->cyl<(s2)->cyl || (s1)->cyl==(s2)->cyl && \
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ((s1)->head<(s2)->head || (s1)->head==(s2)->head && \
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ((s1)->sector<(s2)->sector))))
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~             
+hd.c:350:10: note: in expansion of macro ‘IN_ORDER’
+         !IN_ORDER(tmp,tmp->next)) &&
+          ^~~~~~~~
+hd.c:55:50: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ ((s1)->head<(s2)->head || (s1)->head==(s2)->head && \
+                           ~~~~~~~~~~~~~~~~~~~~~~~^~~~
+ ((s1)->sector<(s2)->sector))))
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~                       
+hd.c:351:9: note: in expansion of macro ‘IN_ORDER’
+         IN_ORDER(req,tmp->next))
+         ^~~~~~~~
+hd.c:54:46: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ ((s1)->cyl<(s2)->cyl || (s1)->cyl==(s2)->cyl && \
+                         ~~~~~~~~~~~~~~~~~~~~~^~~~
+ ((s1)->head<(s2)->head || (s1)->head==(s2)->head && \
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ((s1)->sector<(s2)->sector))))
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                  
+hd.c:351:9: note: in expansion of macro ‘IN_ORDER’
+         IN_ORDER(req,tmp->next))
+         ^~~~~~~~
+hd.c:53:42: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ ((s1)->hd<(s2)->hd || (s1)->hd==(s2)->hd && \
+                       ~~~~~~~~~~~~~~~~~~~^~~~
+ ((s1)->cyl<(s2)->cyl || (s1)->cyl==(s2)->cyl && \
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ((s1)->head<(s2)->head || (s1)->head==(s2)->head && \
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ((s1)->sector<(s2)->sector))))
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~             
+hd.c:351:9: note: in expansion of macro ‘IN_ORDER’
+         IN_ORDER(req,tmp->next))
+         ^~~~~~~~
+memory.c: In function ‘do_no_page’:
+memory.c:241:6: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  if (tmp=get_free_page())
+      ^~~
+In file included from open.c:1:0:
+../include/string.h:128:22: warning: conflicting types for built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strchr(const char * s,char c)
+                      ^~~~~~
+../include/string.h:145:22: warning: conflicting types for built-in function ‘strrchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strrchr(const char * s,char c)
+                      ^~~~~~~
+../include/string.h:379:22: warning: conflicting types for built-in function ‘memchr’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memchr(const void * cs,char c,int count)
+                      ^~~~~~
+../include/string.h:395:22: warning: conflicting types for built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memset(void * s,char c,int count)
+                      ^~~~~~
+open.c: In function ‘sys_access’:
+open.c:42:5: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+  if (!(current->euid && current->uid))
+     ^
+open.c: In function ‘sys_chmod’:
+open.c:92:5: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+  if (current->uid && current->euid)
+     ^
+open.c: In function ‘sys_open’:
+open.c:146:5: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+  if (S_ISCHR(inode->i_mode))
+     ^
+In file included from inode.c:1:0:
+../include/string.h:128:22: warning: conflicting types for built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strchr(const char * s,char c)
+                      ^~~~~~
+../include/string.h:145:22: warning: conflicting types for built-in function ‘strrchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strrchr(const char * s,char c)
+                      ^~~~~~~
+../include/string.h:379:22: warning: conflicting types for built-in function ‘memchr’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memchr(const void * cs,char c,int count)
+                      ^~~~~~
+../include/string.h:395:22: warning: conflicting types for built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memset(void * s,char c,int count)
+                      ^~~~~~
+inode.c: In function ‘_bmap’:
+inode.c:60:8: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+    if (inode->i_zone[block]=new_block(inode->i_dev)) {
+        ^~~~~
+inode.c:69:8: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+    if (inode->i_zone[7]=new_block(inode->i_dev)) {
+        ^~~~~
+inode.c:79:8: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+    if (i=new_block(inode->i_dev)) {
+        ^
+inode.c:88:7: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (inode->i_zone[8]=new_block(inode->i_dev)) {
+       ^~~~~
+inode.c:98:7: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (i=new_block(inode->i_dev)) {
+       ^
+inode.c:109:7: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (i=new_block(inode->i_dev)) {
+       ^
+buffer.c: In function ‘getblk’:
+buffer.c:149:6: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  if (tmp=get_hash_table(dev,block))
+      ^~~
+super.c: In function ‘do_mount’:
+super.c:42:7: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (p->s_imap[i]=bread(dev,block))
+       ^
+super.c:47:7: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (p->s_zmap[i]=bread(dev,block))
+       ^
+char_dev.c:12:11: warning: type defaults to ‘int’ in declaration of ‘crw_ptr’ [-Wimplicit-int]
+ typedef (*crw_ptr)(int rw,unsigned minor,char * buf,int count);
+           ^~~~~~~
+file_dev.c: In function ‘file_read’:
+file_dev.c:19:7: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (nr = bmap(inode,(filp->f_pos)/BLOCK_SIZE)) {
+       ^~
+exec.c: In function ‘read_ind’:
+exec.c:69:7: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (block=*(table++))
+       ^~~~~
+exec.c:69:6: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+   if (block=*(table++))
+      ^
+exec.c: In function ‘count’:
+exec.c:150:6: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  if (tmp = argv)
+      ^~~
+exec.c: In function ‘read_area’:
+exec.c:109:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+In file included from namei.c:5:0:
+../include/string.h:128:22: warning: conflicting types for built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strchr(const char * s,char c)
+                      ^~~~~~
+../include/string.h:145:22: warning: conflicting types for built-in function ‘strrchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strrchr(const char * s,char c)
+                      ^~~~~~~
+../include/string.h:379:22: warning: conflicting types for built-in function ‘memchr’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memchr(const void * cs,char c,int count)
+                      ^~~~~~
+../include/string.h:395:22: warning: conflicting types for built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memset(void * s,char c,int count)
+                      ^~~~~~
+namei.c: In function ‘dir_namei’:
+namei.c:258:9: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  while (c=get_fs_byte(pathname++))
+         ^
+In file included from bitmap.c:2:0:
+../include/string.h:128:22: warning: conflicting types for built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strchr(const char * s,char c)
+                      ^~~~~~
+../include/string.h:145:22: warning: conflicting types for built-in function ‘strrchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strrchr(const char * s,char c)
+                      ^~~~~~~
+../include/string.h:379:22: warning: conflicting types for built-in function ‘memchr’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memchr(const void * cs,char c,int count)
+                      ^~~~~~
+../include/string.h:395:22: warning: conflicting types for built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memset(void * s,char c,int count)
+                      ^~~~~~
+bitmap.c: In function ‘new_block’:
+bitmap.c:77:7: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (bh=sb->s_zmap[i])
+       ^~
+bitmap.c: In function ‘new_inode’:
+bitmap.c:141:7: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (bh=sb->s_imap[i])
+       ^~
+In file included from fcntl.c:1:0:
+../include/string.h:128:22: warning: conflicting types for built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strchr(const char * s,char c)
+                      ^~~~~~
+../include/string.h:145:22: warning: conflicting types for built-in function ‘strrchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strrchr(const char * s,char c)
+                      ^~~~~~~
+../include/string.h:379:22: warning: conflicting types for built-in function ‘memchr’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memchr(const void * cs,char c,int count)
+                      ^~~~~~
+../include/string.h:395:22: warning: conflicting types for built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memset(void * s,char c,int count)
+                      ^~~~~~
+In file included from ioctl.c:1:0:
+../include/string.h:128:22: warning: conflicting types for built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strchr(const char * s,char c)
+                      ^~~~~~
+../include/string.h:145:22: warning: conflicting types for built-in function ‘strrchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strrchr(const char * s,char c)
+                      ^~~~~~~
+../include/string.h:379:22: warning: conflicting types for built-in function ‘memchr’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memchr(const void * cs,char c,int count)
+                      ^~~~~~
+../include/string.h:395:22: warning: conflicting types for built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memset(void * s,char c,int count)
+                      ^~~~~~
+truncate.c: In function ‘free_ind’:
+truncate.c:13:6: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  if (bh=bread(dev,block)) {
+      ^~
+truncate.c: In function ‘free_dind’:
+truncate.c:31:6: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  if (bh=bread(dev,block)) {
+      ^~
+_exit.c: In function ‘_exit’:
+_exit.c:7:1: warning: ‘noreturn’ function does return
+ }
+ ^
+In file included from string.c:8:0:
+../include/string.h:128:22: warning: conflicting types for built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strchr(const char * s,char c)
+                      ^~~~~~
+../include/string.h:145:22: warning: conflicting types for built-in function ‘strrchr’ [-Wbuiltin-declaration-mismatch]
+ static inline char * strrchr(const char * s,char c)
+                      ^~~~~~~
+../include/string.h:379:22: warning: conflicting types for built-in function ‘memchr’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memchr(const void * cs,char c,int count)
+                      ^~~~~~
+../include/string.h:395:22: warning: conflicting types for built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+ static inline void * memset(void * s,char c,int count)
+                      ^~~~~~
+../include/string.h:395:22: warning: ‘memset’ defined but not used [-Wunused-function]
+../include/string.h:379:22: warning: ‘memchr’ defined but not used [-Wunused-function]
+ static inline void * memchr(const void * cs,char c,int count)
+                      ^~~~~~
+../include/string.h:363:19: warning: ‘memcmp’ defined but not used [-Wunused-function]
+ static inline int memcmp(const void * cs,const void * ct,int count)
+                   ^~~~~~
+../include/string.h:346:22: warning: ‘memmove’ defined but not used [-Wunused-function]
+ static inline void * memmove(void * dest,const void * src, int n)
+                      ^~~~~~~
+../include/string.h:336:22: warning: ‘memcpy’ defined but not used [-Wunused-function]
+ static inline void * memcpy(void * dest,const void * src, int n)
+                      ^~~~~~
+../include/string.h:277:22: warning: ‘strtok’ defined but not used [-Wunused-function]
+ static inline char * strtok(char * s,const char * ct)
+                      ^~~~~~
+../include/string.h:263:19: warning: ‘strlen’ defined but not used [-Wunused-function]
+ static inline int strlen(const char * s)
+                   ^~~~~~
+../include/string.h:236:22: warning: ‘strstr’ defined but not used [-Wunused-function]
+ static inline char * strstr(const char * cs,const char * ct)
+                      ^~~~~~
+../include/string.h:209:22: warning: ‘strpbrk’ defined but not used [-Wunused-function]
+ static inline char * strpbrk(const char * cs,const char * ct)
+                      ^~~~~~~
+../include/string.h:185:19: warning: ‘strcspn’ defined but not used [-Wunused-function]
+ static inline int strcspn(const char * cs, const char * ct)
+                   ^~~~~~~
+../include/string.h:161:19: warning: ‘strspn’ defined but not used [-Wunused-function]
+ static inline int strspn(const char * cs, const char * ct)
+                   ^~~~~~
+../include/string.h:145:22: warning: ‘strrchr’ defined but not used [-Wunused-function]
+ static inline char * strrchr(const char * s,char c)
+                      ^~~~~~~
+../include/string.h:128:22: warning: ‘strchr’ defined but not used [-Wunused-function]
+ static inline char * strchr(const char * s,char c)
+                      ^~~~~~
+../include/string.h:107:19: warning: ‘strncmp’ defined but not used [-Wunused-function]
+ static inline int strncmp(const char * cs,const char * ct,int count)
+                   ^~~~~~~
+../include/string.h:88:19: warning: ‘strcmp’ defined but not used [-Wunused-function]
+ static inline int strcmp(const char * cs,const char * ct)
+                   ^~~~~~
+../include/string.h:68:22: warning: ‘strncat’ defined but not used [-Wunused-function]
+ static inline char * strncat(char * dest,const char * src,int count)
+                      ^~~~~~~
+../include/string.h:54:22: warning: ‘strcat’ defined but not used [-Wunused-function]
+ static inline char * strcat(char * dest,const char * src)
+                      ^~~~~~
+../include/string.h:38:22: warning: ‘strncpy’ defined but not used [-Wunused-function]
+ static inline char * strncpy(char * dest,const char *src,int count)
+                      ^~~~~~~
+../include/string.h:27:22: warning: ‘strcpy’ defined but not used [-Wunused-function]
+ static inline char * strcpy(char * dest,const char *src)
+                      ^~~~~~
+ld: warning: cannot find entry symbol _start; defaulting to 0000000000000000
+init/main.o: In function `printf':
+main.c:(.text+0xa): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+init/main.o: In function `fork':
+main.c:(.text+0x44): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+init/main.o: In function `pause':
+main.c:(.text+0x70): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+init/main.o: In function `setup':
+main.c:(.text+0x9c): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+init/main.o: In function `sync':
+main.c:(.text+0xc8): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+init/main.o:main.c:(.text+0xf8): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+kernel/kernel.o: In function `schedule':
+(.text+0x28f): undefined reference to `__stack_chk_fail_local'
+kernel/kernel.o: In function `sys_pause':
+(.text+0x29c): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `sleep_on':
+(.text+0x2c4): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `interruptible_sleep_on':
+(.text+0x325): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `do_timer':
+(.text+0x3bc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `sched_init':
+(.text+0x41f): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `reschedule':
+system_call.o:(.text+0x540): undefined reference to `_schedule'
+kernel/kernel.o: In function `die':
+traps.c:(.text+0x6c9): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `do_double_fault':
+(.text+0x844): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `do_general_protection':
+(.text+0x868): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `do_divide_error':
+(.text+0x88c): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `do_int3':
+(.text+0x8b1): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o:(.text+0x944): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+kernel/kernel.o: In function `trap_init':
+(.text+0xb00): undefined reference to `divide_error'
+(.text+0xb17): undefined reference to `debug'
+(.text+0xb2a): undefined reference to `nmi'
+(.text+0xb3d): undefined reference to `int3'
+(.text+0xb50): undefined reference to `overflow'
+(.text+0xb63): undefined reference to `bounds'
+(.text+0xb76): undefined reference to `invalid_op'
+(.text+0xb89): undefined reference to `device_not_available'
+(.text+0xb9c): undefined reference to `double_fault'
+(.text+0xbaf): undefined reference to `coprocessor_segment_overrun'
+(.text+0xbc2): undefined reference to `invalid_TSS'
+(.text+0xbd5): undefined reference to `segment_not_present'
+(.text+0xbe8): undefined reference to `stack_segment'
+(.text+0xbfb): undefined reference to `general_protection'
+(.text+0xc21): undefined reference to `reserved'
+(.text+0xc34): undefined reference to `coprocessor_error'
+(.text+0xc59): undefined reference to `reserved'
+kernel/kernel.o: In function `_divide_error':
+(.text+0xc74): undefined reference to `_do_divide_error'
+kernel/kernel.o: In function `_debug':
+(.text+0xca9): undefined reference to `_do_int3'
+kernel/kernel.o: In function `_nmi':
+(.text+0xcb0): undefined reference to `_do_nmi'
+kernel/kernel.o: In function `_int3':
+(.text+0xcb7): undefined reference to `_do_int3'
+kernel/kernel.o: In function `_overflow':
+(.text+0xcbe): undefined reference to `_do_overflow'
+kernel/kernel.o: In function `_bounds':
+(.text+0xcc5): undefined reference to `_do_bounds'
+kernel/kernel.o: In function `_invalid_op':
+(.text+0xccc): undefined reference to `_do_invalid_op'
+kernel/kernel.o: In function `math_emulate':
+asm.o:(.text+0xcd4): undefined reference to `_do_device_not_available'
+kernel/kernel.o: In function `_device_not_available':
+(.text+0xced): undefined reference to `_last_task_used_math'
+(.text+0xcfe): undefined reference to `_math_state_restore'
+kernel/kernel.o: In function `_coprocessor_segment_overrun':
+(.text+0xd08): undefined reference to `_do_coprocessor_segment_overrun'
+kernel/kernel.o: In function `_reserved':
+(.text+0xd12): undefined reference to `_do_reserved'
+kernel/kernel.o: In function `_coprocessor_error':
+(.text+0xd1c): undefined reference to `_do_coprocessor_error'
+kernel/kernel.o: In function `_double_fault':
+(.text+0xd26): undefined reference to `_do_double_fault'
+kernel/kernel.o: In function `_invalid_TSS':
+(.text+0xd5d): undefined reference to `_do_invalid_TSS'
+kernel/kernel.o: In function `_segment_not_present':
+(.text+0xd64): undefined reference to `_do_segment_not_present'
+kernel/kernel.o: In function `_stack_segment':
+(.text+0xd6b): undefined reference to `_do_stack_segment'
+kernel/kernel.o: In function `_general_protection':
+(.text+0xd72): undefined reference to `_do_general_protection'
+kernel/kernel.o: In function `verify_area':
+(.text+0xd82): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `copy_mem':
+(.text+0xdf4): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `copy_process':
+(.text+0xeec): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `find_empty_process':
+(.text+0x117c): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `panic':
+(.text+0x11ff): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o:(.text+0x1223): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+kernel/kernel.o: In function `printk':
+(.text+0x1245): undefined reference to `_buf'
+(.text+0x124c): undefined reference to `_tty_write'
+kernel/kernel.o: In function `number':
+vsprintf.c:(.text+0x126b): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+vsprintf.c:(.text+0x1484): undefined reference to `__stack_chk_fail_local'
+kernel/kernel.o: In function `vsprintf':
+(.text+0x1495): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `tty_init':
+(.text+0x185b): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `tty_intr':
+(.text+0x1877): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `copy_to_cooked':
+(.text+0x18cf): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `tty_read':
+(.text+0x1b6f): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o:(.text+0x1f39): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+kernel/kernel.o: In function `scrup':
+console.c:(.text+0x2218): undefined reference to `_columns'
+console.c:(.text+0x2273): undefined reference to `_columns'
+kernel/kernel.o: In function `scrdown':
+console.c:(.text+0x2310): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+console.c:(.text+0x2353): undefined reference to `_columns'
+kernel/kernel.o: In function `lf':
+console.c:(.text+0x2363): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `restore_cur':
+console.c:(.text+0x2395): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `csi_m':
+(.text+0x23cf): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `con_write':
+(.text+0x23f3): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+(.text+0x246e): undefined reference to `_attr'
+kernel/kernel.o: In function `con_init':
+(.text+0x2e25): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+(.text+0x2e6b): undefined reference to `keyboard_interrupt'
+kernel/kernel.o: In function `e0_e1':
+keyboard.o:(.text+0x2eff): undefined reference to `_do_tty_interrupt'
+kernel/kernel.o: In function `put_queue':
+keyboard.o:(.text+0x2f23): undefined reference to `_table_list'
+kernel/kernel.o: In function `_rs1_interrupt':
+(.text+0x368f): undefined reference to `_table_list'
+kernel/kernel.o: In function `_rs2_interrupt':
+(.text+0x3697): undefined reference to `_table_list'
+kernel/kernel.o: In function `read_char':
+rs_io.o:(.text+0x36ff): undefined reference to `_table_list'
+rs_io.o:(.text+0x3720): undefined reference to `_do_tty_interrupt'
+kernel/kernel.o: In function `hd_out':
+hd.c:(.text+0x37e0): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `reset_hd':
+hd.c:(.text+0x38b7): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `do_request':
+hd.c:(.text+0x3962): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `rw_abs_hd':
+hd.c:(.text+0x3a54): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o: In function `bad_rw_intr':
+hd.c:(.text+0x3c7c): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+kernel/kernel.o:hd.c:(.text+0x3d07): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+kernel/kernel.o: In function `rs_init':
+(.text+0x4be1): undefined reference to `rs1_interrupt'
+(.text+0x4bff): undefined reference to `rs2_interrupt'
+kernel/kernel.o: In function `kernel_mktime':
+(.text+0x4c76): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+mm/mm.o: In function `get_free_page':
+(.text+0x7): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+mm/mm.o: In function `free_page':
+(.text+0x4f): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+mm/mm.o: In function `free_page_tables':
+(.text+0xc2): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+mm/mm.o: In function `copy_page_tables':
+(.text+0x19e): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+mm/mm.o:(.text+0x2d0): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+mm/mm.o: In function `page_fault':
+(.text+0x58b): undefined reference to `_do_no_page'
+(.text+0x592): undefined reference to `_do_wp_page'
+fs/fs.o: In function `sys_utime':
+(.text+0xc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `sys_access':
+(.text+0x8c): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `sys_chdir':
+(.text+0x13f): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `sys_chroot':
+(.text+0x1b3): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `sys_chmod':
+(.text+0x227): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o:(.text+0x2d0): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+fs/fs.o: In function `sys_open':
+(.text+0x535): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `sys_close':
+(.text+0x55e): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `sys_lseek':
+(.text+0x5f5): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `sys_read':
+(.text+0x6bd): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `sys_write':
+(.text+0x81b): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `write_inode':
+inode.c:(.text+0x92b): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o:inode.c:(.text+0xa1e): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+fs/fs.o: In function `cp_stat':
+stat.c:(.text+0x23a4): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `sys_stat':
+(.text+0x23b2): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `sys_fstat':
+(.text+0x23f9): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `copy_strings':
+exec.c:(.text+0x2450): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `read_head':
+(.text+0x2581): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `read_ind':
+(.text+0x2622): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o:(.text+0x2734): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+fs/fs.o: In function `do_execve':
+(.text+0x2e8b): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `read_pipe':
+(.text+0x2e99): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `write_pipe':
+(.text+0x2f36): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `sys_pipe':
+(.text+0x3045): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+(.text+0x31c5): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `permission':
+namei.c:(.text+0x31d0): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `find_entry':
+namei.c:(.text+0x3261): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `dir_namei':
+namei.c:(.text+0x33c1): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+namei.c:(.text+0x358b): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `add_entry':
+namei.c:(.text+0x359d): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `namei':
+(.text+0x3735): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+(.text+0x380a): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `open_namei':
+(.text+0x381c): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+(.text+0x3b1a): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `sys_mkdir':
+(.text+0x3b2c): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+(.text+0x3e47): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `sys_rmdir':
+(.text+0x3e59): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+(.text+0x4266): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `sys_unlink':
+(.text+0x4278): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+(.text+0x4457): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `sys_link':
+(.text+0x4469): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+(.text+0x4668): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `free_block':
+(.text+0x467a): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `new_block':
+(.text+0x47cc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `free_inode':
+(.text+0x4962): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `new_inode':
+(.text+0x4ab8): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `dupfd':
+fcntl.c:(.text+0x4c54): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o:(.text+0x4cd7): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+fs/fs.o: In function `.L26':
+tty_ioctl.c:(.text+0x50e7): undefined reference to `__stack_chk_fail_local'
+fs/fs.o: In function `free_ind':
+truncate.c:(.text+0x50f9): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+fs/fs.o: In function `truncate':
+(.text+0x517e): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+lib/lib.a(open.o): In function `open':
+open.c:(.text+0xa): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+lib/lib.a(close.o): In function `close':
+close.c:(.text+0x8): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+lib/lib.a(write.o): In function `write':
+write.c:(.text+0xa): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+lib/lib.a(dup.o):dup.c:(.text+0x8): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+fs/fs.o:(.data.rel+0x0): undefined reference to `end'
+make: *** [tools/system] Error 1

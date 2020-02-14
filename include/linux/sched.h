@@ -167,9 +167,9 @@ __asm__ volatile("str %%ax\n\t" \
  */
 #define switch_to(n) {\
 struct {long a,b;} __tmp; \
-__asm__ volatile("cmpl %%ecx,_current\n\t" \
+__asm__ volatile("cmpl %%ecx,current\n\t" \
 	"je 1f\n\t" \
-	"xchgl %%ecx,_current\n\t" \
+	"xchgl %%ecx,current\n\t" \
 	"movw %%dx,%1\n\t" \
 	"ljmp %0\n\t" \
 	"cmpl %%ecx,%2\n\t" \

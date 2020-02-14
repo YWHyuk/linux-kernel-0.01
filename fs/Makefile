@@ -4,7 +4,7 @@ CC	=gcc
 LD	=ld
 LDFLAGS =-m elf_i386 -r
 CFLAGS	=-Wall -O -m32 -march=i386 -fomit-frame-pointer \
-	-nostdinc -I../include
+	-nostdinc -I../include -fstack-protector-explicit 
 AFLAGS  =--32 -march=i386
 CPP	=gcc -E -nostdinc -I../include
 

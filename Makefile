@@ -10,9 +10,10 @@ LD86	=ld
 
 AS	=as
 LD	=ld
-LDFLAGS	=-m elf_i386 -r -s -x -M
+LDFLAGS	=-m elf_i386 -s -x
 CC	=gcc
-CFLAGS	=-Wall -O -m32 -march=i386 -fomit-frame-pointer
+CFLAGS	=-Wall -O -m32 -march=i386 -fomit-frame-pointer\
+	-fstack-protector-explicit
 AFLAGS  =--32 -march=i386
 CPP	=gcc -E -nostdinc -Iinclude
 
@@ -31,23 +32,20 @@ LIBS	=lib/lib.a
 
 all:	Image
 
-Image: boot/boot tools/system tools/build
-	tools/build boot/boot tools/system > Image
+Image: boot/boot tools/system 
+	cat boot/boot > Image 
+	cat tools/system >> Image
 	sync
-
-tools/build: tools/build.c
-	$(CC) $(CFLAGS) \
-	-o tools/build tools/build.c
-	chmem +65000 tools/build
 
 boot/head.o: boot/head.s
 
 tools/system:	boot/head.o init/main.o \
-		$(ARCHIVES) $(LIBS)
+	$(ARCHIVES) $(LIBS)
 	$(LD) $(LDFLAGS) boot/head.o init/main.o \
 	$(ARCHIVES) \
 	$(LIBS) \
-	-o tools/system > System.map
+	-o tools/system.elf > System.map
+	objcopy -O binary tools/system.elf tools/system
 
 kernel/kernel.o:
 	(cd kernel; make)
@@ -64,13 +62,13 @@ lib/lib.a:
 boot/boot:	boot/boot.s tools/system
 	stat tools/system --format="SYSSIZE = (%s + 15)/16" > tmp.s
 	cat boot/boot.s >> tmp.s
-	$(AS86) $(AFLAGS) -o boot/boot.o tmp.s
+	$(CC) -Wall -m16 -march=i386 -c -o boot/boot.o tmp.s 
 	rm -f tmp.s
-	$(LD86) $(LDFLAGS) -s -o boot/boot boot/boot.o
+	$(LD86) -T boot/boot.ld -o boot/boot boot/boot.o
 
 clean:
 	rm -f Image System.map tmp_make boot/boot core
-	rm -f init/*.o boot/*.o tools/system tools/build
+	rm -f init/*.o boot/*.o tools/system 
 	(cd mm;make clean)
 	(cd fs;make clean)
 	(cd kernel;make clean)

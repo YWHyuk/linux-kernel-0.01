@@ -5,7 +5,7 @@
  */
 
 .text
-.globl _rs1_interrupt,_rs2_interrupt
+.globl rs1_interrupt,rs2_interrupt
 
 size	= 1024				/* must be power of two !
 					   and must match the value
@@ -25,12 +25,12 @@ startup	= 256		/* chars left in write queue when we restart it */
  * the interrupt is coming from, and take appropriate action.
  */
 .align 2
-_rs1_interrupt:
-	pushl $_table_list+8
+rs1_interrupt:
+	pushl $table_list+8
 	jmp rs_int
 .align 2
-_rs2_interrupt:
-	pushl $_table_list+16
+rs2_interrupt:
+	pushl $table_list+16
 rs_int:
 	pushl %edx
 	pushl %ecx
@@ -67,7 +67,7 @@ end:	movb $0x20,%al
 	popl %ebx
 	popl %ecx
 	popl %edx
-	addl $4,%esp		# jump over _table_list entry
+	addl $4,%esp		# jump over table_list entry
 	iret
 
 jmp_table:
@@ -89,7 +89,7 @@ line_status:
 read_char:
 	inb %dx,%al
 	movl %ecx,%edx
-	subl $_table_list,%edx
+	subl $table_list,%edx
 	shrl $3,%edx
 	movl (%ecx),%ecx		# read-queue
 	movl head(%ecx),%ebx
@@ -100,7 +100,7 @@ read_char:
 	je 1f
 	movl %ebx,head(%ecx)
 	pushl %edx
-	call _do_tty_interrupt
+	call do_tty_interrupt
 	addl $4,%esp
 1:	ret
 

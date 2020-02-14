@@ -1,0 +1,197 @@
+    1  ls
+    2  cd ~
+    3  ls
+    4  cd linux-0.01-master/
+    5  ls
+    6  vim ls -al
+    7  ls -al
+    8  rm test
+    9  rm .setup.ld.swp 
+   10  ls
+   11  ls -al
+   12  cd boot
+   13  ls
+   14  vim boot.s
+   15  ls
+   16  cd ..
+   17  make
+   18  cd boot
+   19  ls
+   20  readelf -s boot.s
+   21  readelf -h boot.s
+   22  objdump -a boot.s
+   23  readelf -h boot.o
+   24  readelf -s boot.o
+   25  ls
+   26  readelf -h boot.o
+   27  readelf -s boot.o
+   28  readelf -S boot.o
+   29  objdump
+   30  objdump -D boot.o
+   31  ls
+   32  gcc -m16 -march=elf-i386
+   33  gcc -m16 -march=elf-i386 -c boot.s -o boot.o
+   34  objdump -D boot.o
+   35  ls
+   36  vim boot.ld
+   37  ld -T boot.ld boot.o
+   38  ld -T boot.ld boot.o -o boot_my.o
+   39  vim boot.ld
+   40  ld -T boot.ld boot.o -o boot_my.o
+   41  vim boot.ld
+   42  ld -T boot.ld boot.o -o boot_my.o
+   43  vim boot.ld
+   44  ld -T boot.ld boot.o -o boot_my.o
+   45  vim boot.ld
+   46  ld -T boot.ld boot.o -o boot_my.o
+   47  vim boot.ld
+   48  ld -T boot.ld boot.o -o boot_my.o
+   49  vim boot.ld
+   50  ld -T boot.ld boot.o -o boot_my.o
+   51  vim boot.ld
+   52  ld -T boot.ld boot.o -o boot_my.o
+   53  readelf - h boot_my.o
+   54  readelf -h boot_my.o
+   55  ls
+   56  ld -T boot.ld boot.o -o boot_my.o
+   57  objdump -s boot.o
+   58  objdump -d boot.o
+   59  vim ../Makefile 
+   60  gdb
+   61  cd ~/lab
+   62  ls
+   63  vim boot.s
+   64  ld -T boot.ld boot.o -o boot_my.o
+   65  ld -T boot.ld boot.o -o bin
+   66  vim bin
+   67  vim qemu.sh 
+   68  vim boot.ld
+   69  ld -T boot.ld boot.o -o bin
+   70  vim boot.s
+   71  ls
+   72  vim boot.s
+   73  gcc -m16 -march=i386 -o new_boot.o boot.s
+   74  vim ../linux-0.01-master/Makefile 
+   75  gcc -Wall -O -m16 -march=i386 -fomit-frame-pointer -c -o new_boot.o boot.s
+   76  objdump -d new_boot.o 
+   77  objdump -d boot.o 
+   78  objdump boot.o 
+   79  objdump -s boot.o 
+   80  objdump -s new_boot.o 
+   81  gcc -Wall -O -m16 -march=i386 -fomit-frame-pointer -c -o boot.o boot.s
+   82  ld -T boot.ld boot.o -o bin
+   83  vim boot.s
+   84  vim ../linux-0.01-master/boot/boot.s
+   85  gcc -Wall -O -m16 -march=i386 -fomit-frame-pointer -c -o boot.o boot.s
+   86  ld -T boot.ld boot.o -o bin
+   87  objdump -d boot.o
+   88  vim boot.s
+   89  objdump -D -b binary -mi386 -Maddr16,data16 boot.o
+   90  objdump -d -b binary -mi386 -Maddr16,data16 boot.o
+   91  objdump -b binary -mi386 -Maddr16,data16 boot.o
+   92  objdump -d -b binary -mi386 -Maddr16,data16 boot.o
+   93  objdump -d -mi386 -Maddr16,data16 boot.o
+   94  vim boot.s
+   95  gcc -Wall -O -m16 -march=i386 -fomit-frame-pointer -c -o boot.o boot.s
+   96  objdump -d -mi386 -Maddr16,data16 boot.o
+   97  objdump -d -mi8086 -Maddr16,data16 boot.o
+   98  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+   99  objdump -d -mi8086 -Maddr16,data16 boot.o
+  100  gcc -Wall -O -m16 -march=i386 -fomit-frame-pointer -c -o boot.o boot.s
+  101  ld -T boot.ld boot.o -o bin
+  102  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+  103  ld -T boot.ld boot.o -o bin
+  104  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+  105  ld -T boot.ld boot.o -o bin
+  106  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+  107  ld -T boot.ld boot.o -o bin
+  108  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+  109  ld -T boot.ld boot.o -o bin
+  110  objdump -d -mi8086 -Maddr16,data16 boot.o
+  111  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+  112  ld -T boot.ld boot.o -o bin
+  113  objdump -d -mi8086 -Maddr16,data16 boot.o
+  114  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+  115  objdump -d -mi8086 -Maddr16,data16 boot.o
+  116  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+  117  objdump -d -mi8086 -Maddr16,data16 boot.o
+  118  ld -T boot.ld boot.o -o bin
+  119  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+  120  ld -T boot.ld boot.o -o bin
+  121  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+  122  ld -T boot.ld boot.o -o bin
+  123  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+  124  ld -T boot.ld boot.o -o bin
+  125  objdump -d -mi8086 -Maddr16,data16 boot.o
+  126  gcc -Wall -O -m16 -march=i8086 -fomit-frame-pointer -c -o boot.o boot.s
+  127  ld -T boot.ld boot.o -o bin
+  128  ls
+  129  cd ..
+  130  mv lab linux-0.01-master/lab
+  131  ls
+  132  cd linux-0.01-master/
+  133  ls
+  134  cd lab
+  135  ls
+  136  cd ..
+  137  git add *
+  138  git diff
+  139  git status
+  140  cd boot
+  141  ls
+  142  rm *.o
+  143  rm boot.ld
+  144  cd ..
+  145  ls
+  146  cd fs
+  147  ls
+  148  rm *.o
+  149  cd ..
+  150  ls
+  151  cd include/
+  152  ls
+  153  cd ..
+  154  ls
+  155  cd init
+  156  ls
+  157  rm *.o
+  158  cd ..
+  159  ls
+  160  cd kernel/
+  161  ls
+  162  cd *.o
+  163  rm *.o
+  164  cd ..
+  165  ls
+  166  cd lib
+  167  ls
+  168  rm *.o
+  169  cd ..
+  170  ls
+  171  cd mm
+  172  ls
+  173  rm *.o
+  174  cd ..
+  175  ls
+  176  cd tools
+  177  ls
+  178  cd ..
+  179  ls
+  180  ls -al
+  181  vim .gitignore 
+  182  git add *
+  183  git status
+  184  git commit -m "Add linker script test folder(lab)\
+
+I used qemu+gdb to debug bootloader. But gdb can't support "real-mode". So I added real-mode script and I checked that the print-process works well
+
+\
+"
+  185  git push
+  186  gcc -Wall -O -march=i386 -fomit-frame-pointer -c -o new_boot.o boot.s
+  187  cd lab
+  188  gcc -Wall -O -march=i386 -fomit-frame-pointer -c -o new_boot.o boot.s
+  189  objdump -d new_boot.o
+  190  history
+  191  objdump -d -mi8086 -Maddr16,data16 new_boot.o
+  192  history > command_history

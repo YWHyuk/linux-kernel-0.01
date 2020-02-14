@@ -21,9 +21,9 @@ page_fault:
 	pushl %eax
 	testl $1,%eax
 	jne 1f
-	call _do_no_page
+	call do_no_page
 	jmp 2f
-1:	call _do_wp_page
+1:	call do_wp_page
 2:	addl $8,%esp
 	pop %fs
 	pop %es
