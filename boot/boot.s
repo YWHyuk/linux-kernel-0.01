@@ -218,7 +218,7 @@ rp_read:
         jb ok1_read
         ret
 ok1_read:
-        movw $18,%ax
+        movw $sectors,%ax
         subw sread,%ax
         movw %ax,%cx
         shlw $9,%cx
@@ -232,7 +232,7 @@ ok2_read:
         call read_track
         movw %ax,%cx
         addw sread,%ax
-        cmpw sectors,%ax
+        cmpw $sectors,%ax
         jne ok3_read
         movw $1,%ax
         subw head,%ax

@@ -1,3 +1,4 @@
 #!/bin/sh
-cp Image /mnt/c/Users/magnu/Desktop/Image
-/mnt/c/'Program Files'/qemu/qemu-system-i386.exe -fda C:/Users/magnu/Desktop/Image -S -s 
+HOST=DEWH
+#cp ../Image /mnt/c/Users/$HOST/Desktop/Image
+qemu-system-i386 -nographic -fda ../Image -S -s

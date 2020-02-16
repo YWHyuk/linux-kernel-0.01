@@ -388,9 +388,9 @@ void con_write(struct tty_struct * tty)
 						pos -= columns<<1;
 						lf();
 					}
-					__asm__("movb %2,%%ah\n\t"
+					__asm__ volatile("movb %2,%%ah\n\t"
 						"movw %%ax,%1\n\t"
-						::"a" (c),"m" (*(short *)pos,"r" (attr))
+						::"a" (c),"m" (*(short *)pos),"r" (attr)
 						);
 					pos += 2;
 					x++;
