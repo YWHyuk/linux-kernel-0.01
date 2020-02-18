@@ -12,3 +12,6 @@ volatile void panic(const char * s)
 void __stack_chk_fail_local(){
 	panic("stack-protector: Kernel stack is corrupted");
 }
+void __stack_chk_fail(){
+	__stack_chk_fail_local();
+}

@@ -1,6 +1,6 @@
 CC	=gcc
 CFLAGS	=-O -Wall -m32 -march=i386 -fomit-frame-pointer\
-	-finline-functions -nostdinc -I../include -fstack-protector-explicit 
+	-finline-functions -nostdinc -I../include -fstack-protector-explicit -fno-pic
 AS	=as
 AR	=ar
 LD	=ld

@@ -10,10 +10,10 @@ LD86	=ld
 
 AS	=as
 LD	=ld
-LDFLAGS	=-m elf_i386 -s -x
+LDFLAGS	=-m elf_i386 -s -x -M
 CC	=gcc
 CFLAGS	=-Wall -O -m32 -march=i386 -fomit-frame-pointer\
-	-fstack-protector-explicit
+	-fstack-protector-explicit -s -fno-pic
 AFLAGS  =--32 -march=i386
 CPP	=gcc -E -nostdinc -Iinclude
 
@@ -41,11 +41,11 @@ boot/head.o: boot/head.s
 
 tools/system:	boot/head.o init/main.o \
 	$(ARCHIVES) $(LIBS)
-	$(LD) $(LDFLAGS) boot/head.o init/main.o \
+	$(LD) -T tools/system.ld boot/head.o init/main.o \
 	$(ARCHIVES) \
 	$(LIBS) \
-	-o tools/system.elf > System.map
-	objcopy -O binary tools/system.elf tools/system
+	-M -o tools/system.elf > System.map
+	objcopy -S -O binary tools/system.elf tools/system
 
 kernel/kernel.o:
 	(cd kernel; make)

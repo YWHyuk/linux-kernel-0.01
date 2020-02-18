@@ -1,0 +1,428 @@
+Archive member included to satisfy reference by file (symbol)
+
+lib/lib.a(ctype.o)            kernel/kernel.o (_ctype)
+lib/lib.a(_exit.o)            init/main.o (_exit)
+lib/lib.a(open.o)             init/main.o (open)
+lib/lib.a(close.o)            init/main.o (close)
+lib/lib.a(errno.o)            init/main.o (errno)
+lib/lib.a(write.o)            init/main.o (write)
+lib/lib.a(dup.o)              init/main.o (dup)
+lib/lib.a(setsid.o)           init/main.o (setsid)
+lib/lib.a(execve.o)           init/main.o (execve)
+lib/lib.a(wait.o)             init/main.o (wait)
+
+Allocating common symbols
+Common symbol       size              file
+
+errno               0x4               lib/lib.a(errno.o)
+hash_table          0x4cc             fs/fs.o
+user_stack          0x1000            kernel/kernel.o
+_ctmp               0x1               lib/lib.a(ctype.o)
+super_block         0x340             fs/fs.o
+file_table          0x400             fs/fs.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+
+.text           0x0000000000000000     0xece5
+ *(.text)
+ .text          0x0000000000000000     0x5078 boot/head.o
+                0x0000000000000000                pg_dir
+                0x0000000000004078                idt
+                0x0000000000004878                gdt
+ .text          0x0000000000005078      0x3c1 init/main.o
+                0x00000000000050a8                fork
+                0x00000000000050c7                pause
+                0x00000000000050e6                setup
+                0x0000000000005105                sync
+                0x0000000000005124                init
+                0x000000000000526d                main
+ *fill*         0x0000000000005439        0x1 
+ .text          0x000000000000543a     0x4691 kernel/kernel.o
+                0x000000000000543a                sys_alarm
+                0x0000000000005465                sys_getpid
+                0x0000000000005471                sys_getppid
+                0x000000000000547d                sys_getuid
+                0x000000000000548a                sys_geteuid
+                0x0000000000005497                sys_getgid
+                0x00000000000054a4                sys_getegid
+                0x00000000000054b1                sys_nice
+                0x00000000000054cb                sys_signal
+                0x00000000000054ff                math_state_restore
+                0x0000000000005536                schedule
+                0x0000000000005644                sys_pause
+                0x0000000000005660                sleep_on
+                0x00000000000056b4                interruptible_sleep_on
+                0x0000000000005724                wake_up
+                0x000000000000573f                do_timer
+                0x0000000000005796                sched_init
+                0x00000000000058ce                system_call
+                0x00000000000059ae                timer_interrupt
+                0x00000000000059e6                sys_execve
+                0x00000000000059f4                sys_fork
+                0x0000000000005a0c                hd_interrupt
+                0x0000000000005b9d                do_double_fault
+                0x0000000000005bb6                do_general_protection
+                0x0000000000005bcf                do_divide_error
+                0x0000000000005be8                do_int3
+                0x0000000000005c67                do_nmi
+                0x0000000000005c80                do_debug
+                0x0000000000005c99                do_overflow
+                0x0000000000005cb2                do_bounds
+                0x0000000000005ccb                do_invalid_op
+                0x0000000000005ce4                do_device_not_available
+                0x0000000000005cfd                do_coprocessor_segment_overrun
+                0x0000000000005d16                do_invalid_TSS
+                0x0000000000005d2f                do_segment_not_present
+                0x0000000000005d48                do_stack_segment
+                0x0000000000005d61                do_coprocessor_error
+                0x0000000000005d7a                do_reserved
+                0x0000000000005d93                trap_init
+                0x0000000000005f44                divide_error
+                0x0000000000005f79                debug
+                0x0000000000005f80                nmi
+                0x0000000000005f87                int3
+                0x0000000000005f8e                overflow
+                0x0000000000005f95                bounds
+                0x0000000000005f9c                invalid_op
+                0x0000000000005fab                device_not_available
+                0x0000000000005fd8                coprocessor_segment_overrun
+                0x0000000000005fe2                reserved
+                0x0000000000005fec                coprocessor_error
+                0x0000000000005ff6                double_fault
+                0x000000000000602d                invalid_TSS
+                0x0000000000006034                segment_not_present
+                0x000000000000603b                stack_segment
+                0x0000000000006042                general_protection
+                0x0000000000006049                verify_area
+                0x00000000000060ae                copy_mem
+                0x000000000000618f                copy_process
+                0x0000000000006415                find_empty_process
+                0x0000000000006483                panic
+                0x0000000000006499                __stack_chk_fail_local
+                0x00000000000064a6                __stack_chk_fail
+                0x00000000000064ae                printk
+                0x00000000000066f3                vsprintf
+                0x0000000000006a4d                tty_init
+                0x0000000000006a5e                tty_intr
+                0x0000000000006aa6                copy_to_cooked
+                0x0000000000006d27                tty_read
+                0x0000000000007028                tty_write
+                0x000000000000722c                do_tty_interrupt
+                0x0000000000007421                csi_m
+                0x0000000000007487                con_write
+                0x0000000000007e5e                con_init
+                0x0000000000007ee4                keyboard_interrupt
+                0x00000000000086b8                rs1_interrupt
+                0x00000000000086c0                rs2_interrupt
+                0x0000000000008e20                rw_hd
+                0x0000000000008e9d                sys_setup
+                0x0000000000008fb5                unexpected_hd_interrupt
+                0x0000000000008fc6                hd_init
+                0x000000000000904d                sys_ftime
+                0x0000000000009053                sys_mknod
+                0x0000000000009059                sys_break
+                0x000000000000905f                sys_mount
+                0x0000000000009065                sys_umount
+                0x000000000000906b                sys_ustat
+                0x0000000000009071                sys_ptrace
+                0x0000000000009077                sys_stty
+                0x000000000000907d                sys_gtty
+                0x0000000000009083                sys_rename
+                0x0000000000009089                sys_prof
+                0x000000000000908f                sys_setgid
+                0x00000000000090e9                sys_acct
+                0x00000000000090ef                sys_phys
+                0x00000000000090f5                sys_lock
+                0x00000000000090fb                sys_mpx
+                0x0000000000009101                sys_ulimit
+                0x0000000000009107                sys_time
+                0x000000000000914a                sys_setuid
+                0x00000000000091a3                sys_stime
+                0x00000000000091f0                sys_times
+                0x0000000000009247                sys_brk
+                0x0000000000009275                sys_setpgid
+                0x00000000000092f4                sys_getpgrp
+                0x0000000000009300                sys_setsid
+                0x0000000000009356                sys_uname
+                0x0000000000009396                sys_umask
+                0x00000000000093b5                release
+                0x0000000000009413                do_kill
+                0x000000000000964b                sys_kill
+                0x0000000000009674                do_exit
+                0x0000000000009812                sys_exit
+                0x0000000000009829                sys_waitpid
+                0x00000000000099a1                rs_init
+                0x00000000000099f9                rs_write
+                0x0000000000009a21                kernel_mktime
+ .text          0x0000000000009acb      0x4fc mm/mm.o
+                0x0000000000009acb                get_free_page
+                0x0000000000009b03                free_page
+                0x0000000000009b63                free_page_tables
+                0x0000000000009c2c                copy_page_tables
+                0x0000000000009d40                put_page
+                0x0000000000009dce                un_wp_page
+                0x0000000000009e58                do_wp_page
+                0x0000000000009e86                write_verify
+                0x0000000000009ecc                do_no_page
+                0x0000000000009efd                calc_mem
+                0x0000000000009f90                page_fault
+ .text          0x0000000000009fc7     0x4bba fs/fs.o
+                0x0000000000009fc7                sys_utime
+                0x000000000000a034                sys_access
+                0x000000000000a0d5                sys_chdir
+                0x000000000000a13d                sys_chroot
+                0x000000000000a1a5                sys_chmod
+                0x000000000000a241                sys_chown
+                0x000000000000a2b0                sys_open
+                0x000000000000a480                sys_creat
+                0x000000000000a499                sys_close
+                0x000000000000a522                sys_lseek
+                0x000000000000a5d7                sys_read
+                0x000000000000a71f                sys_write
+                0x000000000000ac9e                sync_inodes
+                0x000000000000acf4                bmap
+                0x000000000000ad0d                create_block
+                0x000000000000ad26                iput
+                0x000000000000ae1b                get_empty_inode
+                0x000000000000af31                get_pipe_inode
+                0x000000000000af78                iget
+                0x000000000000b13a                sys_sync
+                0x000000000000b1ad                brelse
+                0x000000000000b20c                get_hash_table
+                0x000000000000b272                getblk
+                0x000000000000b535                bread
+                0x000000000000b595                buffer_init
+                0x000000000000b628                do_mount
+                0x000000000000b831                mount_root
+                0x000000000000b96e                block_write
+                0x000000000000ba7e                block_read
+                0x000000000000bb87                ll_rw_block
+                0x000000000000bc2d                rw_char
+                0x000000000000bc94                file_read
+                0x000000000000be41                file_write
+                0x000000000000c069                sys_stat
+                0x000000000000c0a6                sys_fstat
+                0x000000000000c1dd                read_head
+                0x000000000000c26f                read_ind
+                0x000000000000c363                read_area
+                0x000000000000c46a                do_execve
+                0x000000000000ca8e                read_pipe
+                0x000000000000cb20                write_pipe
+                0x000000000000cc12                sys_pipe
+                0x000000000000d25b                namei
+                0x000000000000d331                open_namei
+                0x000000000000d5f1                sys_mkdir
+                0x000000000000d8d9                sys_rmdir
+                0x000000000000dca6                sys_unlink
+                0x000000000000de82                sys_link
+                0x000000000000e082                free_block
+                0x000000000000e1aa                new_block
+                0x000000000000e30b                free_inode
+                0x000000000000e441                new_inode
+                0x000000000000e614                sys_dup2
+                0x000000000000e632                sys_dup
+                0x000000000000e641                sys_fcntl
+                0x000000000000e6f9                sys_ioctl
+                0x000000000000e786                tty_ioctl
+                0x000000000000ea6d                truncate
+ .text          0x000000000000eb81        0x0 lib/lib.a(ctype.o)
+ .text          0x000000000000eb81        0xe lib/lib.a(_exit.o)
+                0x000000000000eb81                _exit
+ .text          0x000000000000eb8f       0x2f lib/lib.a(open.o)
+                0x000000000000eb8f                open
+ .text          0x000000000000ebbe       0x25 lib/lib.a(close.o)
+                0x000000000000ebbe                close
+ .text          0x000000000000ebe3        0x0 lib/lib.a(errno.o)
+ .text          0x000000000000ebe3       0x2f lib/lib.a(write.o)
+                0x000000000000ebe3                write
+ .text          0x000000000000ec12       0x25 lib/lib.a(dup.o)
+                0x000000000000ec12                dup
+ .text          0x000000000000ec37       0x1f lib/lib.a(setsid.o)
+                0x000000000000ec37                setsid
+ .text          0x000000000000ec56       0x2f lib/lib.a(execve.o)
+                0x000000000000ec56                execve
+ .text          0x000000000000ec85       0x60 lib/lib.a(wait.o)
+                0x000000000000ec85                waitpid
+                0x000000000000ecb4                wait
+
+.rodata         0x000000000000ed00      0x3c4
+ *(.rodata)
+ .rodata        0x000000000000ed00      0x2f0 kernel/kernel.o
+ *fill*         0x000000000000eff0       0x10 
+ .rodata        0x000000000000f000       0xc4 fs/fs.o
+
+.rodata.str1.1  0x000000000000f0c4      0x62e
+ .rodata.str1.1
+                0x000000000000f0c4       0x6a init/main.o
+ .rodata.str1.1
+                0x000000000000f12e      0x26d kernel/kernel.o
+ .rodata.str1.1
+                0x000000000000f39b       0x68 mm/mm.o
+ .rodata.str1.1
+                0x000000000000f403      0x2ef fs/fs.o
+
+.rodata.str1.4  0x000000000000f6f4      0x5f4
+ .rodata.str1.4
+                0x000000000000f6f4       0x25 init/main.o
+ *fill*         0x000000000000f719        0x3 
+ .rodata.str1.4
+                0x000000000000f71c      0x1fc kernel/kernel.o
+ .rodata.str1.4
+                0x000000000000f918       0xe9 mm/mm.o
+ *fill*         0x000000000000fa01        0x3 
+ .rodata.str1.4
+                0x000000000000fa04      0x2e4 fs/fs.o
+
+.eh_frame       0x000000000000fce8     0x2ec4
+ .eh_frame      0x000000000000fce8      0x14c init/main.o
+ .eh_frame      0x000000000000fe34     0x10fc kernel/kernel.o
+                                       0x1234 (size before relaxing)
+ .eh_frame      0x0000000000010f30      0x254 mm/mm.o
+                                        0x26c (size before relaxing)
+ .eh_frame      0x0000000000011184     0x18f0 fs/fs.o
+                                       0x1a88 (size before relaxing)
+ .eh_frame      0x0000000000012a74       0x1c lib/lib.a(_exit.o)
+                                         0x34 (size before relaxing)
+ .eh_frame      0x0000000000012a90       0x28 lib/lib.a(open.o)
+                                         0x40 (size before relaxing)
+ .eh_frame      0x0000000000012ab8       0x20 lib/lib.a(close.o)
+                                         0x38 (size before relaxing)
+ .eh_frame      0x0000000000012ad8       0x28 lib/lib.a(write.o)
+                                         0x40 (size before relaxing)
+ .eh_frame      0x0000000000012b00       0x20 lib/lib.a(dup.o)
+                                         0x38 (size before relaxing)
+ .eh_frame      0x0000000000012b20       0x14 lib/lib.a(setsid.o)
+                                         0x2c (size before relaxing)
+ .eh_frame      0x0000000000012b34       0x28 lib/lib.a(execve.o)
+                                         0x40 (size before relaxing)
+ .eh_frame      0x0000000000012b5c       0x50 lib/lib.a(wait.o)
+                                         0x68 (size before relaxing)
+
+.data           0x0000000000012bc0     0x3921
+ *(.data)
+ .data          0x0000000000012bc0        0x0 boot/head.o
+ .data          0x0000000000012bc0       0x10 init/main.o
+ *fill*         0x0000000000012bd0       0x10 
+ .data          0x0000000000012be0     0x37ed kernel/kernel.o
+                0x0000000000012be0                stack_start
+                0x0000000000012c00                task
+                0x0000000000012d00                current
+                0x0000000000013d20                sys_call_table
+                0x0000000000013e40                table_list
+                0x0000000000013e60                tty_table
+ .data          0x00000000000163cd        0x0 mm/mm.o
+ *fill*         0x00000000000163cd        0x3 
+ .data          0x00000000000163d0        0x4 fs/fs.o
+                0x00000000000163d0                start_buffer
+ *fill*         0x00000000000163d4        0xc 
+ .data          0x00000000000163e0      0x101 lib/lib.a(ctype.o)
+                0x00000000000163e0                _ctype
+ .data          0x00000000000164e1        0x0 lib/lib.a(_exit.o)
+ .data          0x00000000000164e1        0x0 lib/lib.a(open.o)
+ .data          0x00000000000164e1        0x0 lib/lib.a(close.o)
+ .data          0x00000000000164e1        0x0 lib/lib.a(errno.o)
+ .data          0x00000000000164e1        0x0 lib/lib.a(write.o)
+ .data          0x00000000000164e1        0x0 lib/lib.a(dup.o)
+ .data          0x00000000000164e1        0x0 lib/lib.a(setsid.o)
+ .data          0x00000000000164e1        0x0 lib/lib.a(execve.o)
+ .data          0x00000000000164e1        0x0 lib/lib.a(wait.o)
+
+.bss            0x0000000000016500     0x3d08
+ *(.bss)
+ .bss           0x0000000000016500        0x0 boot/head.o
+ .bss           0x0000000000016500      0x400 init/main.o
+ .bss           0x0000000000016900      0x9b0 kernel/kernel.o
+                0x0000000000016900                last_task_used_math
+                0x0000000000016904                startup_time
+                0x0000000000016908                jiffies
+                0x000000000001690c                last_pid
+                0x0000000000016dc0                do_hd
+ *fill*         0x00000000000172b0       0x10 
+ .bss           0x00000000000172c0      0xc00 mm/mm.o
+ .bss           0x0000000000017ec0      0x710 fs/fs.o
+                0x0000000000017ec0                inode_table
+                0x00000000000185c4                nr_buffers
+ .bss           0x00000000000185d0        0x0 lib/lib.a(ctype.o)
+ .bss           0x00000000000185d0        0x0 lib/lib.a(_exit.o)
+ .bss           0x00000000000185d0        0x0 lib/lib.a(open.o)
+ .bss           0x00000000000185d0        0x0 lib/lib.a(close.o)
+ .bss           0x00000000000185d0        0x0 lib/lib.a(errno.o)
+ .bss           0x00000000000185d0        0x0 lib/lib.a(write.o)
+ .bss           0x00000000000185d0        0x0 lib/lib.a(dup.o)
+ .bss           0x00000000000185d0        0x0 lib/lib.a(setsid.o)
+ .bss           0x00000000000185d0        0x0 lib/lib.a(execve.o)
+ .bss           0x00000000000185d0        0x0 lib/lib.a(wait.o)
+ *fill*         0x00000000000185d0       0x10 
+ COMMON         0x00000000000185e0     0x1000 kernel/kernel.o
+                0x00000000000185e0                user_stack
+ COMMON         0x00000000000195e0      0xc20 fs/fs.o
+                0x00000000000195e0                hash_table
+                0x0000000000019ac0                super_block
+                0x0000000000019e00                file_table
+ COMMON         0x000000000001a200        0x1 lib/lib.a(ctype.o)
+                0x000000000001a200                _ctmp
+ *fill*         0x000000000001a201        0x3 
+ COMMON         0x000000000001a204        0x4 lib/lib.a(errno.o)
+                0x000000000001a204                errno
+                0x000000000001a208                end = .
+
+.comment        0x000000000001a208      0x764
+ *(.comment)
+ .comment       0x000000000001a208       0x2c init/main.o
+ .comment       0x000000000001a234      0x23c kernel/kernel.o
+ .comment       0x000000000001a470       0x2c mm/mm.o
+ .comment       0x000000000001a49c      0x318 fs/fs.o
+ .comment       0x000000000001a7b4       0x2c lib/lib.a(ctype.o)
+ .comment       0x000000000001a7e0       0x2c lib/lib.a(_exit.o)
+ .comment       0x000000000001a80c       0x2c lib/lib.a(open.o)
+ .comment       0x000000000001a838       0x2c lib/lib.a(close.o)
+ .comment       0x000000000001a864       0x2c lib/lib.a(errno.o)
+ .comment       0x000000000001a890       0x2c lib/lib.a(write.o)
+ .comment       0x000000000001a8bc       0x2c lib/lib.a(dup.o)
+ .comment       0x000000000001a8e8       0x2c lib/lib.a(setsid.o)
+ .comment       0x000000000001a914       0x2c lib/lib.a(execve.o)
+ .comment       0x000000000001a940       0x2c lib/lib.a(wait.o)
+LOAD boot/head.o
+LOAD init/main.o
+LOAD kernel/kernel.o
+LOAD mm/mm.o
+LOAD fs/fs.o
+LOAD lib/lib.a
+OUTPUT(tools/system.elf elf64-x86-64)
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 init/main.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 kernel/kernel.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 mm/mm.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 fs/fs.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 lib/lib.a(ctype.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 lib/lib.a(_exit.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 lib/lib.a(open.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 lib/lib.a(close.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 lib/lib.a(errno.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 lib/lib.a(write.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 lib/lib.a(dup.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 lib/lib.a(setsid.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 lib/lib.a(execve.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 lib/lib.a(wait.o)

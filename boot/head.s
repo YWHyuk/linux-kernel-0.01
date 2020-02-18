@@ -14,6 +14,8 @@ startup_32:
 	mov %ax,%es
 	mov %ax,%fs
 	mov %ax,%gs
+	mov %ax,%ss
+	mov $stack_start,%esp
 	lss stack_start,%esp
 	call setup_idt
 	call setup_gdt

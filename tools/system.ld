@@ -2,13 +2,14 @@
  *
  * Linker script for the i386 setup code
  */
-OUTPUT_FORMAT("binary")
 OUTPUT_ARCH(i386)
-ENTRY(_start)
 
 SECTIONS {
 	.text 0x00:{*(.text)}
+	.rodata :{*(.rodata)}
 	.data :{*(.data)}
 	.bss :{*(.bss)}
+	end = .;
+	.comment :{*(.comment)}
 }
 
