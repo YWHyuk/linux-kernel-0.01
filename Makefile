@@ -13,7 +13,7 @@ LD	=ld
 LDFLAGS	=-m elf_i386 -s -x -M
 CC	=gcc
 CFLAGS	=-Wall -O -m32 -march=i386 -fomit-frame-pointer\
-	-fstack-protector-explicit -s -fno-pic
+	-fstack-protector-explicit -s -fno-pic -g
 AFLAGS  =--32 -march=i386
 CPP	=gcc -E -nostdinc -Iinclude
 
