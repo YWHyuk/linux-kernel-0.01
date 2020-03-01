@@ -48,13 +48,13 @@ struct tty_struct tty_table[] = {
 		0,			/* initial pgrp */
 		0,			/* initial stopped */
 		con_write,
-		{0,0,0,0,""},		/* console read-queue */
-		{0,0,0,0,""},		/* console write-queue */
-		{0,0,0,0,""}		/* console secondary queue */
+		{0x0,0,0,0,""},		/* console read-queue */
+		{0x0,0,0,0,""},		/* console write-queue */
+		{0x0,0,0,0,""}		/* console secondary queue */
 	},{
 		{0, /*IGNCR*/
 		OPOST | ONLRET,		/* change outgoing NL to CR */
-		B2400 | CS8,
+		B38400 | CS8,
 		0,
 		0,
 		INIT_C_CC},
@@ -67,7 +67,7 @@ struct tty_struct tty_table[] = {
 	},{
 		{0, /*IGNCR*/
 		OPOST | ONLRET,		/* change outgoing NL to CR */
-		B2400 | CS8,
+		B38400 | CS8,
 		0,
 		0,
 		INIT_C_CC},

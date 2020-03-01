@@ -20,9 +20,10 @@ extern void rs2_interrupt(void);
 static void init(int port)
 {
 	outb_p(0x80,port+3);	/* set DLAB of line control reg */
-	outb_p(0x30,port);	/* LS of divisor (48 -> 2400 bps */
+	outb_p(0x03,port);	/* LS of divisor (48 -> 38400 bps */
 	outb_p(0x00,port+1);	/* MS of divisor */
 	outb_p(0x03,port+3);	/* reset DLAB */
+	outb_p(0xc7,port+2);	// Enable FIFO,clear them, with 14-byte threshold
 	outb_p(0x0b,port+4);	/* set DTR,RTS, OUT_2 */
 	outb_p(0x0d,port+1);	/* enable all intrs but writes */
 	(void)inb(port);	/* read data port to reset things (?) */
@@ -46,8 +47,12 @@ void rs_init(void)
  */
 void rs_write(struct tty_struct * tty)
 {
+	char temp;
 	cli();
-	if (!EMPTY(tty->write_q))
-		outb(inb_p(tty->write_q.data+1)|0x02,tty->write_q.data+1);
+	outb(inb_p(tty->write_q.data+1)|0x02,tty->write_q.data+1);
+	while (!EMPTY(tty->write_q)){
+		GETCH(tty->write_q,temp);
+		outb(temp,tty->write_q.data);
+	}
 	sti();
 }

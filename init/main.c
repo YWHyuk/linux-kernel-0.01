@@ -1,7 +1,6 @@
 #define __LIBRARY__
 #include <unistd.h>
 #include <time.h>
-
 /*
  * we need this inline - forking from kernel space will result
  * in NO COPY ON WRITE (!!!), until an execve is executed. This
@@ -40,7 +39,7 @@ extern void init(void);
 extern void hd_init(void);
 extern long kernel_mktime(struct tm * tm);
 extern long startup_time;
-
+extern int printk(const char* format, ...);
 /*
  * Yeah, yeah, it's ugly, but I cannot find how to do this correctly
  * and this seems to work. I anybody has more info on the real-time
@@ -89,6 +88,7 @@ int main(void)		/* This really IS void, no error here. */
 	buffer_init();
 	hd_init();
 	sti();
+	printk("Test");
 	move_to_user_mode();
 	if (!fork()) {		/* we count on this going ok */
 		init();
@@ -120,7 +120,7 @@ static char * envp[] = { "HOME=/usr/root", NULL };
 void init(void)
 {
 	int i,j;
-
+	printf("I'm init");
 	setup();
 	if (!fork())
 		_exit(execve("/bin/update",NULL,NULL));
